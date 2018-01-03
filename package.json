@@ -1,0 +1,20 @@
+{
+  "name": "graphql-api-wrapper",
+  "version": "1.0.0",
+  "description": "Experiment to use graphql as an api wrapper/aggregator",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.12.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shawna Mattison",
+  "license": "MIT"
+}
