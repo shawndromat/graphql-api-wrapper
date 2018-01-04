@@ -1,7 +1,9 @@
 import {
   GraphQLObjectType,
   GraphQLString,
-} from 'graphql';
+} from 'graphql'
+import AgentType from "./AgentType"
+import { fetchAgent } from "./serviceCalls/customerServiceCalls"
 
 const CustomerType = new GraphQLObjectType({
   name: 'Customer',
@@ -14,6 +16,10 @@ const CustomerType = new GraphQLObjectType({
     agentId: {
       type: GraphQLString,
       resolve: customer => customer.agentId,
+    },
+    agent: {
+      type: AgentType,
+      resolve: customer => fetchAgent(customer.agentId)
     }
   })
 })
