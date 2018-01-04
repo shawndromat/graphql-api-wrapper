@@ -8,20 +8,22 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
-    "express": "^4.16.2",
-    "express-graphql": "^0.6.11",
-    "graphql": "^0.12.3"
-  },
-  "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.1"
+    "babel-preset-env": "^1.6.1",
+    "express": "^4.16.2",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.12.3"
   },
   "scripts": {
-    "build": "babel src -d lib"
+    "start": "babel-node ./src/server.js"
   },
   "author": "Shawna Mattison",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": "8.9.x",
+    "npm": "5.5.x"
+  }
 }

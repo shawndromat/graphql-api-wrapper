@@ -4,12 +4,13 @@ import 'babel-polyfill'
 import schema from './schema'
 
 const app = express()
+const PORT = process.env.PORT || 4000
 
 app.use('/graphql', graphqlHTTP({
   schema: schema,
   graphiql: true,
 }))
 
-app.listen(4000)
+app.listen(PORT)
 
-console.log('Running a GraphQL API server at localhost:4000/graphql')
+console.log(`Running a GraphQL API server at localhost:${PORT}/graphql`)
