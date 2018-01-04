@@ -1,15 +1,17 @@
 import axios from 'axios'
 
-export const fetchCustomer = (id) => (
-  axios.get(`http://localhost:4001/customer/${id}`)
+const BASE_URL = process.env.SERVICE_URL || "http://localhost:4001"
+
+export const fetchCustomer = (id) => {
+  return axios.get(`${BASE_URL}/customer/${id}`)
     .then(response => {
       return response.data
     })
-    .catch( _ => ({}))
-)
+    .catch(_ => ({}))
+}
 
 export const fetchAgent = (id) => (
-  axios.get(`http://localhost:4001/agent/${id}`)
+  axios.get(`${BASE_URL}/agent/${id}`)
     .then(response => {
       return response.data
     })

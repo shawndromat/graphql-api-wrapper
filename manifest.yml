@@ -1,0 +1,7 @@
+---
+applications:
+- name: graphql-api-wrapper
+  memory: 512M
+  instances: 1
+  env:
+      SERVICE_URL: http://product-service-graphql.cfapps.io
