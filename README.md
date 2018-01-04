@@ -74,6 +74,7 @@ Using GraphQl to wrap and coordinate these API calls gives the following benefit
 ## Tradeoffs
 * Clients need to know the shape of the product they are fetching otherwise they may kick off superfluous or error-producing API calls
 * GraphQl in general doesn't allow for HTTP caching
+* Bundling all the external API calls into one GraphQl call means the GraphQl call won't return until all external calls finish and will only be as performant as the slowest call
 
 ## Try it out
 [Click here](http://graphql-api-wrapper.cfapps.io/graphql) to use the GraphiQl interface. You can try the following Customer query with or without their associated Agent. I've added a 5 second delay to all Agent queries so you can tell whether or not an additional API call has been made.
