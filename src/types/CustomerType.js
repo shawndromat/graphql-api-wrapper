@@ -3,7 +3,7 @@ import {
   GraphQLString,
 } from 'graphql'
 import AgentType from "./AgentType"
-import { fetchAgent } from "./serviceCalls/customerServiceCalls"
+import { fetchAgent } from "../serviceCalls/customerServiceCalls"
 
 const CustomerType = new GraphQLObjectType({
   name: 'Customer',
