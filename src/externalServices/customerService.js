@@ -52,10 +52,12 @@ app.route('/agent/:agentId')
 
     console.log(`Requested agent with id: ${agentId}`)
 
-    res.json({
-      id: agentId,
-      ...retrieveAgent(agentId)
-    })
+    setTimeout(() => {
+      res.json({
+        id: agentId,
+        ...retrieveAgent(agentId)
+      })
+    }, 5000)
   })
 
 app.listen(port)
