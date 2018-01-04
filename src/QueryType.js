@@ -2,16 +2,8 @@ import {
   GraphQLObjectType,
   GraphQLString,
 } from 'graphql';
-import axios from 'axios'
 import CustomerType from "./CustomerType"
-
-const fetchCustomer = (id) => (
-  axios.get(`http://localhost:4001/customer/${id}`)
-    .then(response => {
-      return response.data
-    })
-    .catch( _ => ({}))
-)
+import fetchCustomer from "./serviceCalls/fetchCustomer"
 
 const QueryType = new GraphQLObjectType({
   name: 'Query',
