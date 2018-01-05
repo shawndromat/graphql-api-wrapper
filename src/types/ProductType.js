@@ -3,7 +3,8 @@ import {
   GraphQLString,
   GraphQLList
 } from 'graphql'
-import {fetchProductColors, fetchProductSizes} from "../serviceCalls/customerServiceCalls"
+import {fetchProductColors, fetchProductSizes, fetchRatings} from "../serviceCalls/customerServiceCalls"
+import RatingType from "./RatingType"
 
 const ProductType = new GraphQLObjectType({
   name: 'Product',
@@ -24,6 +25,10 @@ const ProductType = new GraphQLObjectType({
     colors: {
       type: new GraphQLList(GraphQLString),
       resolve: product => fetchProductColors(product.category)
+    },
+    ratings: {
+      type: new GraphQLList(RatingType),
+      resolve: product => fetchRatings(product.id)
     }
   })
 })

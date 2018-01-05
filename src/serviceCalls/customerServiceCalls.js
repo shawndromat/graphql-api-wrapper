@@ -29,3 +29,7 @@ export const fetchProductSizes = (category) => (
 export const fetchProductColors = (category) => (
   get(`${BASE_URL}/categories/${category}/colors`)
 )
+
+export const fetchRatings = (productId) => (
+  get(`${BASE_URL}/products/${productId}/ratings`)
+)

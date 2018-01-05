@@ -54,18 +54,18 @@ Only when the `sizes` field is included will GraphQl fire off the additional `ca
 
 ## Benefits
 Using GraphQl to wrap and coordinate these API calls gives the following benefits:
-* Enforces a common schema/type system that describes how the data is related
+* Enforces a common schema/type system
 * Allows clients to focus on the data they need and not have to know about how many or which API calls need to be made
 * Fields resolve lazily so API calls will only be fired off if a corresponding field is requested
 * GraphQl also handles resolving fields in parallel. With firing off ajax calls, this isn't so much of a performance win but the syntactic sugar of not having to handle your own Promises is nice
 
 ## Tradeoffs
-* Clients need to know the shape of the product they are fetching otherwise they may kick off superfluous or error-producing API calls
+* Clients need to know the what fields are available and the shape of the product they are fetching otherwise they may kick off superfluous or error-producing API calls
 * GraphQl in general doesn't allow for HTTP caching
 * Bundling all the external API calls into one GraphQl call means the GraphQl call won't return until all external calls finish and will only be as performant as the slowest call
 
 ## Try it out
-[Click here](http://graphql-api-wrapper.cfapps.io/graphql) to use the GraphiQl interface. You can try the following Product query with or without sizes and colors. I've added a couple second delay to all additional queries so you can tell whether or not an additional API call has been made.
+[Click here](http://graphql-api-wrapper.cfapps.io/graphql) to use the GraphiQl interface. You can try the following Product query. The `sizes`, `colors` and `ratings` fields all constitute additional API calls. I've added a couple second delay to all additional queries so you can tell whether or not an additional API call has been made.
 
 Customer only
 ```
@@ -86,6 +86,11 @@ Customer with Agent
     category
     name
     sizes
+    colors
+    ratings {
+      rating
+      comment
+    }
   }
 }
 ``` 
