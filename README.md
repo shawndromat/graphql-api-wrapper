@@ -12,22 +12,13 @@ For example, certain products only need certain fields from a GET request to `pr
 }
 ```
 
-But other products may require additional details supplied by an additional call to `/products/:id/types`:
+But other products may require additional details supplied by an additional call to `/categories/:name/sizes`:
 
 ```json
 [
-  {
-    "color": "Ivory",
-    "size": "1 gallon"
-  },
-  {
-    "color": "Ivory",
-    "size": "10 gallon"
-  },
-  {
-    "color": "Navy",
-    "size": "1 gallon"
-  }
+  "1 gallon",
+  "10 gallon",
+  "1 gallon"
 ]
 ```
 
@@ -54,15 +45,12 @@ A product with details:
     id
     category
     name
-    types: {
-      name
-      color
-    }
+    sizes
   }
 }
 ```
 
-Only when the `types` field is included will GraphQl fire off the additional `products/:id/types` request
+Only when the `sizes` field is included will GraphQl fire off the additional `categories/:name/sizes` request
 
 ## Benefits
 Using GraphQl to wrap and coordinate these API calls gives the following benefits:
@@ -77,13 +65,14 @@ Using GraphQl to wrap and coordinate these API calls gives the following benefit
 * Bundling all the external API calls into one GraphQl call means the GraphQl call won't return until all external calls finish and will only be as performant as the slowest call
 
 ## Try it out
-[Click here](http://graphql-api-wrapper.cfapps.io/graphql) to use the GraphiQl interface. You can try the following Customer query with or without their associated Agent. I've added a 5 second delay to all Agent queries so you can tell whether or not an additional API call has been made.
+[Click here](http://graphql-api-wrapper.cfapps.io/graphql) to use the GraphiQl interface. You can try the following Product query with or without sizes and colors. I've added a couple second delay to all additional queries so you can tell whether or not an additional API call has been made.
 
 Customer only
 ```
 {
-  getCustomer(id: "23456") {
+  getProduct(id: "23456") {
     id
+    category
     name
   }
 }
@@ -92,13 +81,11 @@ Customer only
 Customer with Agent
 ```
 {
-  getCustomer(id: "23456") {
+  getProduct(id: "23456") {
     id
+    category
     name
-    agent {
-      id
-      name
-    }
+    sizes
   }
 }
 ``` 
