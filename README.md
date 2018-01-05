@@ -72,11 +72,11 @@ Using GraphQl to wrap and coordinate these API calls gives the following benefit
 Product with additional details
 ```
 {
-  getProduct(id: 1) {
+  getProduct(id: 3) {
     id
     category
     name
-    /* the following fields make aditional api calls */
+    # the following fields make aditional api calls
     sizes
     colors
     ratings {
