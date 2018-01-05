@@ -3,7 +3,8 @@ import {
   GraphQLString,
 } from 'graphql';
 import CustomerType from "./CustomerType"
-import { fetchCustomer } from "../serviceCalls/customerServiceCalls"
+import {fetchCustomer, fetchProduct} from "../serviceCalls/customerServiceCalls"
+import ProductType from "./ProductType"
 
 const QueryType = new GraphQLObjectType({
   name: 'Query',
@@ -14,6 +15,13 @@ const QueryType = new GraphQLObjectType({
         id: { type: GraphQLString },
       },
       resolve: (root, args) => fetchCustomer(args.id)
+    },
+    getProduct: {
+      type: ProductType,
+      args: {
+        id: { type: GraphQLString },
+      },
+      resolve: (root, args) => fetchProduct(args.id)
     }
   }),
 })
