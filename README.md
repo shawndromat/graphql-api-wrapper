@@ -86,3 +86,13 @@ Product with additional details
   }
 }
 ``` 
+
+The backing API:
+ 
+`/products/:productId`
+
+`/products/:productId/ratings`
+
+`/categories/:name/sizes`
+
+`/categories/:name/colors`
