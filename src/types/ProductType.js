@@ -1,6 +1,7 @@
 import {
   GraphQLObjectType,
   GraphQLString,
+  GraphQLInt,
   GraphQLList
 } from 'graphql'
 import {fetchProductColors, fetchProductSizes, fetchRatings} from "../serviceCalls/customerServiceCalls"
@@ -9,7 +10,7 @@ import RatingType from "./RatingType"
 const ProductType = new GraphQLObjectType({
   name: 'Product',
   fields: () => ({
-    id: {type: GraphQLString},
+    id: {type: GraphQLInt},
     name: {
       type: GraphQLString,
       resolve: product => product.name,

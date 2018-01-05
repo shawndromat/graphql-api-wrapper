@@ -65,26 +65,18 @@ Using GraphQl to wrap and coordinate these API calls gives the following benefit
 * Bundling all the external API calls into one GraphQl call means the GraphQl call won't return until all external calls finish and will only be as performant as the slowest call
 
 ## Try it out
-[Click here](http://graphql-api-wrapper.cfapps.io/graphql) to use the GraphiQl interface. You can try the following Product query. The `sizes`, `colors` and `ratings` fields all constitute additional API calls. I've added a couple second delay to all additional queries so you can tell whether or not an additional API call has been made.
+[Click here](http://graphql-api-wrapper.cfapps.io/graphql) to use the GraphiQl interface. You can try the following Product query with any integer id. The `sizes`, `colors` and `ratings` fields all constitute additional API calls. I've added a couple second delay to all additional queries so you can tell whether or not an additional API call has been made.
 
-Customer only
+  NOTE: not all products have sizes or colors and will show GraphQl errors
+
+Product with additional details
 ```
 {
-  getProduct(id: "23456") {
+  getProduct(id: 1) {
     id
     category
     name
-  }
-}
-``` 
-
-Customer with Agent
-```
-{
-  getProduct(id: "23456") {
-    id
-    category
-    name
+    /* the following fields make aditional api calls */
     sizes
     colors
     ratings {
