@@ -23,7 +23,7 @@ But other products may require additional details supplied by an additional call
 ```
 
 ## GraphQL as a solution
-Rather than putting the onus on the dozens of clients to make separate calls and build them back into similarly shaped domain objects, using GraphQl as an API wrapper allows all clients to call the same endpoint and just request the fields they need
+Rather than putting the onus on the dozens of clients to make separate calls and build them back into similarly shaped domain objects, using GraphQl as an API wrapper allows all clients to call the same GraphQL method and just request the fields they need
 
 Just the product:
 ```
